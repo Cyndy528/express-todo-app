@@ -4,8 +4,16 @@ var bodyParser = require('body-Parser');
 
 var app = express(); 
 
+
 //set up body parser for post stuff
 app.use(bodyParser.urlencoded({ extended : true})); 
+
+// serve static files from public folder
+app.use(express.static(__dirname + '/public'));
+
+
+// set view engine to hbs (handlebars)
+app.set('view engine', 'hbs');
 
 //seed data, includes elements of weekday_Mornings
 var weekday_Mornings = [

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- set viewport to device width to make site responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap css -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- custom styles -->
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+
+  <title>Weekday Mornings</title>
+</head>
+
+<body>
+
+      <div class="header">
+        <h1>Early Morning<h1>
+      </div>
+
+  <!-- page layout -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+<!--new todo form --> 
+
+       <!-- new todo form-->
+        <form class="form-inline" id="create-todo">
+          <div class="form-group">
+            <input type="text" name="task" class="form-control" placeholder="Task" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="description" class="form-control" placeholder="Description">
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-default" value="Add To Do">
+          </div>
+        </form>
+        <br>
+
+        <ul class="list-group" id="to do list"> 
+
+          <!-- handlebars template -->
+          <script id="mornings-template" type="text/x-handlebars-template">
+            \{{#each mornings}}
+            <li class="list-group-item todo" data-id="\{{_id}}">
+
+            <span class="label label-default">\{{task}}</span>
+
+            \{{description}}
+          </script>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+  <!-- jquery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <!-- handlebars -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+
+  <!-- custom script -->
+  <script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>
