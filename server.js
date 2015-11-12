@@ -88,6 +88,26 @@ app.put ('api/mornings/:id', function (req, res) {
 	res.json(morningToUpDate); 
 });
 
+//delete morning
+app.delete('api/mornings/:id', function(req, res){
+	//get morning id from url params ('req.params')
+	var morningID= parseInt(req.params.id); 
+
+	//find morning to delete by its id
+	var morningToDelete = morning.filter(function(morning) {
+		return morning._id === morningId; 
+	}) [0]; 
+
+	//find index of morning in 'morning' array
+	var morningIndex = morning.indexOf(morningToDelete); 
+
+	//remove morning from 'morning' array
+	morning.splice(morningIndex, 1); 
+
+	//send back deleted morning
+	res.json(morningToDelete); 
+	
+}); 
 
 
 
