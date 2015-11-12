@@ -18,6 +18,9 @@
   "homepage": "https://github.com/Cyndy528/express-todo-app#readme",
   "dependencies": {
     "body-parser": "^1.14.1",
-    "express": "^4.13.3"
+    "chai": "^3.4.1",
+    "express": "^4.13.3",
+    "mocha": "^2.3.3",
+    "request": "^2.65.0"
   }
 }
