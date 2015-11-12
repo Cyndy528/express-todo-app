@@ -27,11 +27,25 @@ app.get('/api', function(req, res){
 	res.json({test : 'this is working'}); 
 }); 
 
-//set all beers 
-app.get('/api/weekday_Mornings', function(req, res){
+//set all mornings 
+app.get('/api/Mornings', function(req, res){
 	res.json( weekday_Mornings ); 
 }); 
 
+//get a single mornings
+app.get('/api/mornings/:id', function(req, res){
+
+	//get mornings id from URL params
+	var morningID = parseInt(req.params.id); 
+	
+	//find mornings by id
+	var foundMorning = weekday_Mornings.filter(function(mornings){
+		return weekday_Mornings._id == morningID; 
+	}); 
+	//send foundMorning as JSON
+	res.json(foundMorning); 
+
+}); 
 
 
 app.get('/api', function(req, res){
