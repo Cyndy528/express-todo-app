@@ -69,8 +69,23 @@ app.post('/api/mornings', function(req, res){
 }); 
 
 
-app.get('/api', function(req, res){
-	res.json({ test : "hello"});
+//update morning 
+app.put ('api/mornings/:id', function (req, res) {
+	//get morning id from url params ('req.params')
+	var morningID = parseInt(req.params.id); 
+
+	//find morning to update it's id
+	var morningToUpDate = mornings.filter(function(morning){ 
+		return morning._id === morningId; 
+	}) [0]; 
+	//update the morning's task
+	morningToUpDate.task = req.body.task;
+	
+	//update the morning's description
+	morningToUpDate.description = req.body.description;
+	
+	//send back updated morning
+	res.json(morningToUpDate); 
 });
 
 
