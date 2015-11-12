@@ -48,6 +48,27 @@ app.get('/api/mornings/:id', function(req, res){
 }); 
 
 
+
+//post a single morning
+app.post('/api/mornings', function(req, res){
+
+	//create a new morning with form data 
+	var newMornings = req.body; 
+	
+	//set a sequential id, only checking 
+	if (weekday_Mornings.length > 0){
+		newMornings._id = weekday_Mornings[weekday_Mornings.length - 1]._id + 1; 
+	} else {
+		newMornings._id = 1; 
+	}
+	//add new morning to 'weekday_Mornings' array
+	weekday_Mornings.push(newMornings);
+
+	//send newMorning as JSON object
+	res.json( newMornings ); 
+}); 
+
+
 app.get('/api', function(req, res){
 	res.json({ test : "hello"});
 });
